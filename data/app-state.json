@@ -277,7 +277,7 @@
         {
           "id": "participant-1788215385488-52",
           "name": "Luis Hernandez",
-          "eligible": false
+          "eligible": true
         },
         {
           "id": "participant-1788215385488-53",
@@ -2262,7 +2262,7 @@
         {
           "id": "participant-1788215385488-449",
           "name": "Casey Nguyen",
-          "eligible": true
+          "eligible": false
         },
         {
           "id": "participant-1788215385488-450",
@@ -2622,11 +2622,11 @@
           "wonAt": "2026-08-31T22:41:04.320Z"
         },
         {
-          "id": "winner-6-1788216093518",
-          "participantId": "participant-1788215385488-52",
-          "participantName": "Luis Hernandez",
+          "id": "winner-6-1788216135817",
+          "participantId": "participant-1788215385488-449",
+          "participantName": "Casey Nguyen",
           "drawNumber": 6,
-          "wonAt": "2026-08-31T22:41:33.518Z"
+          "wonAt": "2026-08-31T22:42:15.817Z"
         }
       ]
     }
