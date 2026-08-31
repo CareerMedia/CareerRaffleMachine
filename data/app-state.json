@@ -4,9 +4,9 @@
     "demo-career-fair-giveaway": {
       "id": "demo-career-fair-giveaway",
       "title": "Career Fair Giveaway",
-      "totalParticipants": 6,
+      "totalParticipants": 5,
       "prizeCount": 10,
-      "currentDraw": 7,
+      "currentDraw": 8,
       "status": "active",
       "participants": [
         {
@@ -57,7 +57,7 @@
         {
           "id": "participant-1788216200583-4",
           "name": "Hell Yeah",
-          "eligible": true
+          "eligible": false
         },
         {
           "id": "participant-1788216200583-5",
@@ -107,6 +107,13 @@
           "participantName": "Luis Hernandez",
           "drawNumber": 6,
           "wonAt": "2026-08-31T22:41:33.518Z"
+        },
+        {
+          "id": "winner-7-1788216323905",
+          "participantId": "participant-1788216200583-4",
+          "participantName": "Hell Yeah",
+          "drawNumber": 7,
+          "wonAt": "2026-08-31T22:45:23.905Z"
         }
       ]
     }
