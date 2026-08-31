@@ -1,15 +1,15 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { DisplayPage } from '../pages/display/DisplayPage';
 import { AdminLayout } from '../pages/admin/AdminLayout';
 import { RafflesPage } from '../pages/admin/RafflesPage';
 import { RaffleControlPage } from '../pages/admin/RaffleControlPage';
 import { BrandingPage } from '../pages/admin/BrandingPage';
 
-const routerBasename = import.meta.env.BASE_URL.replace(/\/$/, '');
-
+// Hash routing keeps every deep link working on static hosts (GitHub Pages)
+// without server-side rewrites.
 export function AppRouter() {
   return (
-    <BrowserRouter basename={routerBasename}>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/display" replace />} />
         <Route path="/display/:raffleId" element={<DisplayPage />} />
@@ -22,6 +22,6 @@ export function AppRouter() {
         </Route>
         <Route path="*" element={<Navigate to="/display" replace />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }

@@ -19,18 +19,37 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # Switches the repo's Pages source to "GitHub Actions" if it is still
+      # set to deploy from a branch, which would publish raw source files.
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
+
       - run: npm ci
-      - run: npm run build:pages
+
+      - run: npm run build
         env:
           VITE_GITHUB_TOKEN: ${{ secrets.RAFFLE_GITHUB_TOKEN }}
           VITE_GITHUB_OWNER: ${{ github.repository_owner }}
           VITE_GITHUB_REPO: ${{ github.event.repository.name }}
           VITE_GITHUB_BRANCH: main
           VITE_GITHUB_DATA_PATH: data/app-state.json
+
+      - name: Verify build output
+        run: |
+          test -f dist/index.html || { echo "::error::dist/index.html missing"; exit 1; }
+          test -f dist/404.html   || { echo "::error::dist/404.html missing"; exit 1; }
+          test -f dist/.nojekyll  || { echo "::error::dist/.nojekyll missing"; exit 1; }
+          grep -q '/CareerRaffleMachine/assets/' dist/index.html \
+            || { echo "::error::index.html is not using the /CareerRaffleMachine/ base path"; exit 1; }
+          echo "Build output verified."
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

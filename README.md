@@ -11,18 +11,29 @@ cp .env.example .env
 npm run dev
 ```
 
-Open [https://careermedia.github.io/CareerRaffleMachine/display](https://careermedia.github.io/CareerRaffleMachine/display) for the presentation experience.
+## Live URLs
 
-## Routes
+Base: `https://careermedia.github.io/CareerRaffleMachine/`
 
 | Route | Description |
 |-------|-------------|
-| `/CareerRaffleMachine/display/:raffleId` | Full-screen raffle wheel for a specific raffle |
-| `/CareerRaffleMachine/display` | Redirects to the active raffle |
-| `/CareerRaffleMachine/admin` | Admin dashboard |
-| `/CareerRaffleMachine/admin/raffles` | Raffle manager |
-| `/CareerRaffleMachine/admin/raffles/:id` | Raffle editor |
-| `/CareerRaffleMachine/admin/branding` | Logo upload + backup tools |
+| `#/display` | Full-screen wheel for the active raffle |
+| `#/display/:raffleId` | Full-screen wheel for a specific raffle |
+| `#/admin/raffles` | Raffle manager (create / edit / delete) |
+| `#/admin/raffles/:id` | Raffle editor |
+| `#/admin/branding` | Logo upload + backup tools |
+
+Path-style links such as `/CareerRaffleMachine/display` also work: GitHub Pages serves
+`404.html`, which redirects to the matching hash route.
+
+## GitHub Pages Setup (required once)
+
+**Settings → Pages → Build and deployment → Source = `GitHub Actions`.**
+
+If Source is left on "Deploy from a branch", Pages publishes the raw repository
+(source `index.html` referencing `/src/main.tsx`), which renders a blank white screen
+and 404s on every route. The deploy workflow calls `actions/configure-pages` to correct
+this automatically, but verify the setting after the first run.
 
 ## GitHub Runtime Persistence
 
