@@ -6,7 +6,7 @@
       "title": "Career Fair Giveaway",
       "totalParticipants": 11,
       "prizeCount": 10,
-      "currentDraw": 2,
+      "currentDraw": 3,
       "status": "active",
       "participants": [
         {
@@ -77,6 +77,13 @@
           "participantName": "Casey Nguyen",
           "drawNumber": 1,
           "wonAt": "2026-08-31T22:28:50.088Z"
+        },
+        {
+          "id": "winner-2-1788215330246",
+          "participantId": "participant-8",
+          "participantName": "Casey Nguyen",
+          "drawNumber": 2,
+          "wonAt": "2026-08-31T22:28:50.246Z"
         }
       ]
     }
