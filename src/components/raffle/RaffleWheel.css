@@ -1,5 +1,7 @@
 .wheel-shell {
-  --wheel-size: min(78vh, 820px);
+  /* Sized in stage units (1920x1080). The stage is uniformly scaled to the
+     viewport, so viewport units here would shrink the wheel a second time. */
+  --wheel-size: 880px;
   position: relative;
   width: var(--wheel-size);
   height: var(--wheel-size);

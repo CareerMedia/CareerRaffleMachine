@@ -133,9 +133,31 @@
   color: #d22030;
 }
 
-.raffles-page__delete {
+.raffles-page__card-actions {
   flex-shrink: 0;
   align-self: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.raffles-page__rename {
+  padding: 0.5rem 0.85rem;
+  border: 1px solid #e8e4e0;
+  background: #faf8f6;
+  color: #444;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.raffles-page__rename:hover {
+  background: #f0eeeb;
+  border-color: #d6d0ca;
+}
+
+.raffles-page__delete {
   padding: 0.5rem 0.85rem;
   border: 1px solid #f0c4c8;
   background: #fff5f6;

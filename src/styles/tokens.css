@@ -82,5 +82,5 @@
   --stage-width: 1920;
   --stage-height: 1080;
   --stage-aspect: 16 / 9;
-  --wheel-diameter: min(78vh, 820px);
+  --wheel-diameter: 880px;
 }

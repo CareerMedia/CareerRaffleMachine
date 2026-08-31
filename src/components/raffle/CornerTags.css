@@ -23,6 +23,15 @@
 
 .corner-tag--right {
   right: clamp(1.5rem, 3vw, 3rem);
+  max-width: min(38vw, 34rem);
+  text-align: right;
+}
+
+/* Active raffle name reads as a label, so give it more presence than the tagline. */
+.corner-tag--title {
+  font-size: clamp(0.7rem, 1vw, 0.95rem);
+  letter-spacing: 0.14em;
+  color: var(--ink-primary);
 }
 
 .corner-tag--dimmed {

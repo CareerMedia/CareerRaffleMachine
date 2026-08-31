@@ -249,7 +249,7 @@ export function RaffleDisplay({ raffleId }: RaffleDisplayProps) {
           </motion.div>
         </main>
 
-        <CornerTags dimmed={dimmed} />
+        <CornerTags dimmed={dimmed} raffleTitle={raffle?.title} />
       </div>
 
       <WinnerReveal

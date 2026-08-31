@@ -46,6 +46,24 @@ export function RafflesPage() {
     }
   };
 
+  const handleRename = async (raffle: Raffle, event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const nextTitle = window.prompt('Raffle name (shown on the display):', raffle.title);
+    if (nextTitle === null) return;
+
+    const trimmed = nextTitle.trim();
+    if (!trimmed || trimmed === raffle.title) return;
+
+    try {
+      await getRaffleService().updateRaffle(raffle.id, { title: trimmed });
+      await loadRaffles();
+    } catch {
+      setError('Could not rename raffle.');
+    }
+  };
+
   const handleDelete = async (raffle: Raffle, event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     event.stopPropagation();
@@ -114,14 +132,24 @@ export function RafflesPage() {
                 Display: <code>{getAppPath(`/display/${raffle.id}`)}</code>
               </p>
             </div>
-            <button
-              type="button"
-              className="raffles-page__delete"
-              onClick={(e) => handleDelete(raffle, e)}
-              aria-label={`Delete ${raffle.title}`}
-            >
-              Delete
-            </button>
+            <div className="raffles-page__card-actions">
+              <button
+                type="button"
+                className="raffles-page__rename"
+                onClick={(e) => handleRename(raffle, e)}
+                aria-label={`Rename ${raffle.title}`}
+              >
+                Rename
+              </button>
+              <button
+                type="button"
+                className="raffles-page__delete"
+                onClick={(e) => handleDelete(raffle, e)}
+                aria-label={`Delete ${raffle.title}`}
+              >
+                Delete
+              </button>
+            </div>
           </Link>
         ))}
       </div>

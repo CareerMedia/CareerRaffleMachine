@@ -152,13 +152,15 @@ export function RaffleControlPage() {
         {activeTab === 'settings' && (
           <section className="control-page__panel">
             <h2>Raffle Settings</h2>
-            <label className="control-page__field">
-              <span>Title</span>
+            <label className="control-page__field control-page__field--name">
+              <span>Raffle Name</span>
               <input
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+                placeholder="e.g. Fall Career Fair Giveaway"
               />
+              <small>Shown on the live display screen. Edit anytime, then save.</small>
             </label>
             <label className="control-page__field">
               <span>Status</span>
