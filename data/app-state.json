@@ -4,9 +4,9 @@
     "demo-career-fair-giveaway": {
       "id": "demo-career-fair-giveaway",
       "title": "Career Fair Giveaway",
-      "totalParticipants": 514,
+      "totalParticipants": 513,
       "prizeCount": 10,
-      "currentDraw": 3,
+      "currentDraw": 4,
       "status": "active",
       "participants": [
         {
@@ -1887,7 +1887,7 @@
         {
           "id": "participant-1788215385488-374",
           "name": "Chloe Anderson",
-          "eligible": true
+          "eligible": false
         },
         {
           "id": "participant-1788215385488-375",
@@ -2599,6 +2599,13 @@
           "participantName": "Casey Nguyen",
           "drawNumber": 2,
           "wonAt": "2026-08-31T22:28:50.246Z"
+        },
+        {
+          "id": "winner-3-1788215569866",
+          "participantId": "participant-1788215385488-374",
+          "participantName": "Chloe Anderson",
+          "drawNumber": 3,
+          "wonAt": "2026-08-31T22:32:49.866Z"
         }
       ]
     }
