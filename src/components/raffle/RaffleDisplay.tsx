@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { AmbientBackground } from './AmbientBackground';
 import { BrandLockup } from './BrandLockup';
@@ -213,7 +214,14 @@ export function RaffleDisplay({ raffleId }: RaffleDisplayProps) {
         style={{ transform: `scale(${scale})` }}
       >
         <header className="raffle-display__header">
-          <BrandLockup subdued={dimmed} />
+          <Link
+            to="/admin/raffles"
+            className="raffle-display__brand-link"
+            aria-label="Open raffle admin"
+            title="Open raffle admin"
+          >
+            <BrandLockup subdued={dimmed} />
+          </Link>
           <StatusCapsule
             inTheRunning={stats.inTheRunning}
             prizesRemaining={stats.prizesRemaining}

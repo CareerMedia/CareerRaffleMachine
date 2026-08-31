@@ -39,6 +39,23 @@
   flex-shrink: 0;
 }
 
+/* Discreet escape hatch back to admin during an event. */
+.raffle-display__brand-link {
+  display: inline-flex;
+  border-radius: var(--radius-md);
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+.raffle-display__brand-link:hover {
+  opacity: 0.75;
+  transform: translateY(-1px);
+}
+
+.raffle-display__brand-link:focus-visible {
+  outline: 2px solid var(--csun-red);
+  outline-offset: 6px;
+}
+
 .raffle-display__main {
   flex: 1;
   display: flex;
