@@ -4,28 +4,86 @@
     "demo-career-fair-giveaway": {
       "id": "demo-career-fair-giveaway",
       "title": "Career Fair Giveaway",
-      "totalParticipants": 12,
+      "totalParticipants": 11,
       "prizeCount": 10,
-      "currentDraw": 1,
+      "currentDraw": 2,
       "status": "active",
       "participants": [
-        { "id": "participant-1", "name": "Jordan Martinez", "eligible": true },
-        { "id": "participant-2", "name": "Emily Parker", "eligible": true },
-        { "id": "participant-3", "name": "Riley Johnson", "eligible": true },
-        { "id": "participant-4", "name": "Dylan Brown", "eligible": true },
-        { "id": "participant-5", "name": "Chloe Anderson", "eligible": true },
-        { "id": "participant-6", "name": "Maya Patel", "eligible": true },
-        { "id": "participant-7", "name": "Luis Hernandez", "eligible": true },
-        { "id": "participant-8", "name": "Casey Nguyen", "eligible": true },
-        { "id": "participant-9", "name": "Alex Garcia", "eligible": true },
-        { "id": "participant-10", "name": "Taylor Williams", "eligible": true },
-        { "id": "participant-11", "name": "Brandon Smith", "eligible": true },
-        { "id": "participant-12", "name": "Samantha Lee", "eligible": true }
+        {
+          "id": "participant-1",
+          "name": "Jordan Martinez",
+          "eligible": true
+        },
+        {
+          "id": "participant-2",
+          "name": "Emily Parker",
+          "eligible": true
+        },
+        {
+          "id": "participant-3",
+          "name": "Riley Johnson",
+          "eligible": true
+        },
+        {
+          "id": "participant-4",
+          "name": "Dylan Brown",
+          "eligible": true
+        },
+        {
+          "id": "participant-5",
+          "name": "Chloe Anderson",
+          "eligible": true
+        },
+        {
+          "id": "participant-6",
+          "name": "Maya Patel",
+          "eligible": true
+        },
+        {
+          "id": "participant-7",
+          "name": "Luis Hernandez",
+          "eligible": true
+        },
+        {
+          "id": "participant-8",
+          "name": "Casey Nguyen",
+          "eligible": false
+        },
+        {
+          "id": "participant-9",
+          "name": "Alex Garcia",
+          "eligible": true
+        },
+        {
+          "id": "participant-10",
+          "name": "Taylor Williams",
+          "eligible": true
+        },
+        {
+          "id": "participant-11",
+          "name": "Brandon Smith",
+          "eligible": true
+        },
+        {
+          "id": "participant-12",
+          "name": "Samantha Lee",
+          "eligible": true
+        }
       ],
-      "winners": []
+      "winners": [
+        {
+          "id": "winner-1-1788215330088",
+          "participantId": "participant-8",
+          "participantName": "Casey Nguyen",
+          "drawNumber": 1,
+          "wonAt": "2026-08-31T22:28:50.088Z"
+        }
+      ]
     }
   },
-  "order": ["demo-career-fair-giveaway"],
+  "order": [
+    "demo-career-fair-giveaway"
+  ],
   "branding": {
     "logoDataUrl": null,
     "logoAlt": "CSUN Career Center"
