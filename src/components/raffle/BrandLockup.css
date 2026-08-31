@@ -1,0 +1,18 @@
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  max-width: min(420px, 42vw);
+}
+
+.brand-lockup--subdued {
+  opacity: 0.55;
+}
+
+.brand-lockup__logo {
+  display: block;
+  width: auto;
+  height: clamp(2.4rem, 4.2vh, 3.4rem);
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
+}

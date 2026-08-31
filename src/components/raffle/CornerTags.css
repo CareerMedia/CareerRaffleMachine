@@ -1,0 +1,36 @@
+.corner-tag {
+  position: absolute;
+  bottom: clamp(1.5rem, 3vh, 2.5rem);
+  padding: 0.65rem 1.25rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+  font-size: clamp(0.55rem, 0.75vw, 0.7rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  box-shadow: 0 2px 16px rgba(120, 80, 160, 0.08);
+  transition: opacity 0.4s;
+  z-index: 2;
+}
+
+.corner-tag--left {
+  left: clamp(1.5rem, 3vw, 3rem);
+}
+
+.corner-tag--right {
+  right: clamp(1.5rem, 3vw, 3rem);
+}
+
+.corner-tag--dimmed {
+  opacity: 0.4;
+}
+
+@media (max-width: 900px) {
+  .corner-tag--right {
+    display: none;
+  }
+}

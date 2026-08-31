@@ -1,0 +1,65 @@
+.raffle-display {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.raffle-display--loading {
+  align-items: center;
+  justify-content: center;
+}
+
+.raffle-display__loader {
+  position: relative;
+  z-index: 2;
+  font-size: var(--text-md);
+  color: var(--ink-secondary);
+  letter-spacing: 0.1em;
+}
+
+.raffle-display__stage {
+  position: relative;
+  z-index: 2;
+  width: 1920px;
+  height: 1080px;
+  display: flex;
+  flex-direction: column;
+  transform-origin: center center;
+}
+
+.raffle-display__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: clamp(1.5rem, 3vh, 2.5rem) clamp(2rem, 4vw, 3.5rem) 0;
+  flex-shrink: 0;
+}
+
+.raffle-display__main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  position: relative;
+}
+
+.raffle-display__wheel-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1100px) {
+  .raffle-display__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

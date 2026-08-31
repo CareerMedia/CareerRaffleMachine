@@ -1,0 +1,86 @@
+:root {
+  /* Brand */
+  --csun-red: #d22030;
+  --csun-red-bright: #e82c47;
+
+  /* Wheel palette */
+  --wheel-red: #e82c47;
+  --wheel-gold: #f5b52e;
+  --wheel-violet: #793fe8;
+  --wheel-blue: #526feb;
+  --wheel-magenta: #ce4caf;
+  --wheel-ivory: #f8f0f2;
+  --wheel-lavender: #b56ce6;
+
+  /* Ink */
+  --ink-primary: #252331;
+  --ink-secondary: #676274;
+  --text-light: #ffffff;
+  --text-dark: #292735;
+
+  /* Surfaces */
+  --pearl: #fdf8f6;
+  --pearl-lavender: #f5eef8;
+  --glass-bg: rgba(255, 255, 255, 0.42);
+  --glass-border: rgba(255, 255, 255, 0.72);
+  --stage-bg: rgba(255, 255, 255, 0.24);
+
+  /* Legacy aliases */
+  --white-warm: #faf8f6;
+  --white-soft: #e8e4e0;
+  --charcoal-plum: #252331;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-pill: 9999px;
+
+  /* Blur */
+  --blur-sm: 8px;
+  --blur-md: 16px;
+  --blur-lg: 32px;
+  --blur-xl: 64px;
+
+  /* Typography */
+  --font-primary: 'Manrope', system-ui, sans-serif;
+  --font-display: 'Inter', 'Manrope', system-ui, sans-serif;
+
+  --text-xs: clamp(0.65rem, 0.5vw + 0.5rem, 0.75rem);
+  --text-sm: clamp(0.75rem, 0.6vw + 0.55rem, 0.875rem);
+  --text-md: clamp(0.875rem, 0.8vw + 0.6rem, 1rem);
+  --text-lg: clamp(1.125rem, 1vw + 0.75rem, 1.5rem);
+  --text-xl: clamp(1.5rem, 1.5vw + 1rem, 2.25rem);
+  --text-2xl: clamp(2rem, 2.5vw + 1rem, 3.5rem);
+  --text-hero: clamp(2.5rem, 5vw + 1rem, 5.5rem);
+
+  /* Animation */
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 800ms;
+  --duration-spin-prep: 750ms;
+  --duration-winner-pause: 320ms;
+  --duration-celebration: 1200ms;
+  --duration-reset: 800ms;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-smooth: cubic-bezier(0.45, 0, 0.55, 1);
+  --ease-spin-decel: cubic-bezier(0.12, 0.85, 0.15, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Display stage */
+  --stage-width: 1920;
+  --stage-height: 1080;
+  --stage-aspect: 16 / 9;
+  --wheel-diameter: min(78vh, 820px);
+}

@@ -1,0 +1,69 @@
+.orbit-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.orbit-decor__ribbon {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  opacity: 0.35;
+}
+
+.orbit-decor__ribbon--1 {
+  width: 90%;
+  height: 45%;
+  top: 20%;
+  left: 5%;
+  transform: rotate(-12deg);
+  animation: ribbon-drift 20s ease-in-out infinite;
+}
+
+.orbit-decor__ribbon--2 {
+  width: 70%;
+  height: 35%;
+  bottom: 15%;
+  right: 0;
+  transform: rotate(8deg);
+  animation: ribbon-drift 26s ease-in-out infinite reverse;
+}
+
+.orbit-decor__sphere {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow:
+    inset -2px -3px 6px rgba(0, 0, 0, 0.15),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.5),
+    0 4px 12px rgba(100, 60, 140, 0.15);
+  animation: sphere-float 14s ease-in-out infinite;
+}
+
+@keyframes ribbon-drift {
+  0%,
+  100% {
+    transform: rotate(-12deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-10deg) translateY(-8px);
+  }
+}
+
+@keyframes sphere-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-decor__ribbon,
+  .orbit-decor__sphere {
+    animation: none;
+  }
+}
