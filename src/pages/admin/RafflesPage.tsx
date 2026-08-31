@@ -2,6 +2,7 @@ import { useEffect, useState, type MouseEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getRaffleService } from '../../services';
 import { subscribeToStorageUpdates } from '../../services/storage/persistentStore';
+import { getAppPath } from '../../lib/appUrl';
 import type { Raffle } from '../../types/raffle';
 import './RafflesPage.css';
 
@@ -110,7 +111,7 @@ export function RafflesPage() {
                 </span>
               </div>
               <p className="raffles-page__display-url">
-                Display: <code>#/display/{raffle.id}</code>
+                Display: <code>{getAppPath(`/display/${raffle.id}`)}</code>
               </p>
             </div>
             <button

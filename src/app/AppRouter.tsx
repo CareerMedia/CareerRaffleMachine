@@ -1,14 +1,17 @@
-import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { DisplayPage } from '../pages/display/DisplayPage';
 import { AdminLayout } from '../pages/admin/AdminLayout';
 import { RafflesPage } from '../pages/admin/RafflesPage';
 import { RaffleControlPage } from '../pages/admin/RaffleControlPage';
 import { BrandingPage } from '../pages/admin/BrandingPage';
 
+const routerBasename = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 export function AppRouter() {
   return (
-    <HashRouter>
+    <BrowserRouter basename={routerBasename}>
       <Routes>
+        <Route path="/" element={<Navigate to="/display" replace />} />
         <Route path="/display/:raffleId" element={<DisplayPage />} />
         <Route path="/display" element={<DisplayPage />} />
         <Route path="/admin" element={<AdminLayout />}>
@@ -19,6 +22,6 @@ export function AppRouter() {
         </Route>
         <Route path="*" element={<Navigate to="/display" replace />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }

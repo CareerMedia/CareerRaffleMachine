@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
 import { getRaffleService } from '../../services';
 import { subscribeToStorageUpdates } from '../../services/storage/persistentStore';
+import { getAppUrl } from '../../lib/appUrl';
 import type { Raffle } from '../../types/raffle';
 import './RaffleControlPage.css';
 
@@ -246,7 +247,7 @@ export function RaffleControlPage() {
             <h2>Live Display</h2>
             <p>Open this raffle&apos;s standalone presentation screen.</p>
             <p className="control-page__display-url">
-              URL: <code>{window.location.origin}{window.location.pathname}#{displayPath}</code>
+              URL: <code>{getAppUrl(displayPath)}</code>
             </p>
             <Link to={displayPath} className="control-page__launch" target="_blank">
               Launch Display Mode

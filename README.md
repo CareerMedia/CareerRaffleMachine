@@ -11,18 +11,18 @@ cp .env.example .env
 npm run dev
 ```
 
-Open [http://localhost:5173/#/display](http://localhost:5173/#/display) for the presentation experience.
+Open [https://careermedia.github.io/CareerRaffleMachine/display](https://careermedia.github.io/CareerRaffleMachine/display) for the presentation experience.
 
 ## Routes
 
 | Route | Description |
 |-------|-------------|
-| `#/display/:raffleId` | Full-screen raffle wheel for a specific raffle |
-| `#/display` | Redirects to the active raffle |
-| `#/admin` | Admin dashboard shell |
-| `#/admin/raffles` | Raffle manager |
-| `#/admin/raffles/:id` | Individual raffle control room |
-| `#/admin/branding` | Logo upload + data backup tools |
+| `/CareerRaffleMachine/display/:raffleId` | Full-screen raffle wheel for a specific raffle |
+| `/CareerRaffleMachine/display` | Redirects to the active raffle |
+| `/CareerRaffleMachine/admin` | Admin dashboard |
+| `/CareerRaffleMachine/admin/raffles` | Raffle manager |
+| `/CareerRaffleMachine/admin/raffles/:id` | Raffle editor |
+| `/CareerRaffleMachine/admin/branding` | Logo upload + backup tools |
 
 ## GitHub Runtime Persistence
 
@@ -56,7 +56,7 @@ npm run build:pages
 
 Or use the included GitHub Actions workflow (`.github/workflows/deploy.yml`) for automatic deployment on push to `main`.
 
-Deploy the `dist/` folder to GitHub Pages. The project uses hash routing and `base: '/CareerRaffleMachine/'` when building for Pages.
+Deploy the `dist/` folder to GitHub Pages. The project uses browser routing with `base: '/CareerRaffleMachine/'` and a `404.html` SPA fallback for direct links like `/display` and `/admin`.
 
 ## Tech Stack
 
