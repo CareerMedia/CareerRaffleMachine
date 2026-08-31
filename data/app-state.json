@@ -4,9 +4,9 @@
     "demo-career-fair-giveaway": {
       "id": "demo-career-fair-giveaway",
       "title": "Career Fair Giveaway",
-      "totalParticipants": 4,
+      "totalParticipants": 3,
       "prizeCount": 10,
-      "currentDraw": 9,
+      "currentDraw": 10,
       "status": "active",
       "participants": [
         {
@@ -37,7 +37,7 @@
         {
           "id": "participant-1788216200583-0",
           "name": "Yes",
-          "eligible": true
+          "eligible": false
         },
         {
           "id": "participant-1788216200583-1",
@@ -121,6 +121,13 @@
           "participantName": "No",
           "drawNumber": 8,
           "wonAt": "2026-08-31T22:45:42.286Z"
+        },
+        {
+          "id": "winner-9-1788216401296",
+          "participantId": "participant-1788216200583-0",
+          "participantName": "Yes",
+          "drawNumber": 9,
+          "wonAt": "2026-08-31T22:46:41.296Z"
         }
       ]
     }
