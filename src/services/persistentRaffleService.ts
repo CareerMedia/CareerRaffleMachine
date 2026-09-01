@@ -17,6 +17,7 @@ import {
   loadPersistedState,
   savePersistedState,
 } from './storage/persistentStore';
+import { sanitizeRaffleForDisplay } from './storage/mergeAppState';
 
 function getEligibleParticipants(raffle: Raffle) {
   return raffle.participants.filter((p) => p.eligible);
@@ -40,7 +41,9 @@ async function mutateRaffle(
   const existing = state.raffles[raffleId];
   if (!existing) throw new Error('Raffle not found');
 
-  const updated = syncRaffleDerivedFields(mutator(structuredClone(existing)));
+  const updated = sanitizeRaffleForDisplay(
+    syncRaffleDerivedFields(mutator(structuredClone(existing))),
+  );
   state.raffles[raffleId] = updated;
   await savePersistedState(state);
   return structuredClone(updated);
@@ -51,7 +54,7 @@ export class PersistentRaffleService implements RaffleService {
     const state = await loadPersistedState();
     const raffle = state.raffles[id];
     if (!raffle) return null;
-    return structuredClone(syncRaffleDerivedFields(raffle));
+    return structuredClone(sanitizeRaffleForDisplay(raffle));
   }
 
   async getActiveRaffle(): Promise<Raffle | null> {
@@ -64,7 +67,7 @@ export class PersistentRaffleService implements RaffleService {
     return state.order
       .map((id) => state.raffles[id])
       .filter((raffle): raffle is Raffle => Boolean(raffle))
-      .map((raffle) => structuredClone(syncRaffleDerivedFields(raffle)));
+      .map((raffle) => structuredClone(sanitizeRaffleForDisplay(raffle)));
   }
 
   async createRaffle(input: CreateRaffleInput): Promise<Raffle> {

@@ -39,8 +39,10 @@ export function RafflesPage() {
       setNewTitle('');
       await loadRaffles();
       navigate(`/admin/raffles/${raffle.id}`);
-    } catch {
-      setError('Could not create raffle.');
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : 'Could not create raffle.',
+      );
     } finally {
       setCreating(false);
     }

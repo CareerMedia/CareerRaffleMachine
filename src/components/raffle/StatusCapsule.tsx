@@ -7,6 +7,7 @@ interface StatusCapsuleProps {
   currentDraw: number;
   totalPrizes: number;
   dimmed?: boolean;
+  syncing?: boolean;
 }
 
 function StatBlock({
@@ -35,11 +36,16 @@ export function StatusCapsule({
   currentDraw,
   totalPrizes,
   dimmed = false,
+  syncing = false,
 }: StatusCapsuleProps) {
   const drawPadded = String(currentDraw).padStart(2, '0');
 
   return (
-    <div className={`status-capsule ${dimmed ? 'status-capsule--dimmed' : ''}`}>
+    <div
+      className={`status-capsule ${dimmed ? 'status-capsule--dimmed' : ''}${
+        syncing ? ' status-capsule--syncing' : ''
+      }`}
+    >
       <StatBlock
         icon={Users}
         value={inTheRunning.toLocaleString()}

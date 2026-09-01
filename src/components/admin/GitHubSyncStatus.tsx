@@ -27,11 +27,13 @@ export function GitHubSyncStatus() {
     >
       {status.syncing
         ? 'Saving to GitHub…'
-        : status.lastError
-          ? `GitHub sync error: ${status.lastError}`
-          : status.lastSyncedAt
-            ? `Synced to GitHub`
-            : 'Connected to GitHub'}
+        : status.pendingChanges
+          ? 'Saved locally — syncing to GitHub…'
+          : status.lastError
+            ? status.lastError
+            : status.lastSyncedAt
+              ? 'Synced to GitHub'
+              : 'Connected to GitHub'}
     </p>
   );
 }

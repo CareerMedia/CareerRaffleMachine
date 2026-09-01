@@ -1,5 +1,5 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { getRaffleService } from '../../services';
 import { subscribeToStorageUpdates } from '../../services/storage/persistentStore';
 import { getAppUrl } from '../../lib/appUrl';
@@ -7,6 +7,13 @@ import type { Raffle } from '../../types/raffle';
 import './RaffleControlPage.css';
 
 type ControlTab = 'settings' | 'participants' | 'winners' | 'display';
+
+function eligibleNames(raffle: Raffle): string {
+  return raffle.participants
+    .filter((p) => p.eligible)
+    .map((p) => p.name)
+    .join('\n');
+}
 
 export function RaffleControlPage() {
   const { id } = useParams<{ id: string }>();
@@ -20,32 +27,64 @@ export function RaffleControlPage() {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [formDirty, setFormDirty] = useState(false);
+  const formDirtyRef = useRef(false);
+  const savingRef = useRef(false);
 
-  const loadRaffle = useCallback(async () => {
-    if (!id) return;
-    const data = await getRaffleService().getRaffle(id);
-    if (data) {
+  const applyRaffleToForm = useCallback((data: Raffle) => {
+    setTitle(data.title);
+    setStatus(data.status);
+    setPrizeCount(String(data.prizeCount));
+    setParticipantsText(eligibleNames(data));
+  }, []);
+
+  const loadRaffle = useCallback(
+    async (options?: { resetForm?: boolean }) => {
+      if (!id) return;
+      const data = await getRaffleService().getRaffle(id);
+      if (!data) {
+        setRaffle(null);
+        return;
+      }
+
       setRaffle(data);
-      setTitle(data.title);
-      setStatus(data.status);
-      setPrizeCount(String(data.prizeCount));
-      const eligible = data.participants.filter((p) => p.eligible).map((p) => p.name);
-      setParticipantsText(eligible.join('\n'));
-    } else {
-      setRaffle(null);
-    }
-  }, [id]);
+
+      const shouldResetForm = options?.resetForm || !formDirtyRef.current;
+      if (shouldResetForm) {
+        applyRaffleToForm(data);
+        if (options?.resetForm) {
+          formDirtyRef.current = false;
+        }
+      }
+    },
+    [applyRaffleToForm, id],
+  );
 
   useEffect(() => {
-    loadRaffle();
+    formDirtyRef.current = false;
+    setFormDirty(false);
+    loadRaffle({ resetForm: true });
+
     return subscribeToStorageUpdates(() => {
-      loadRaffle();
+      if (savingRef.current) return;
+      if (formDirtyRef.current) {
+        void loadRaffle({ resetForm: false });
+        return;
+      }
+      void loadRaffle({ resetForm: true });
     });
   }, [loadRaffle]);
+
+  const markDirty = () => {
+    formDirtyRef.current = true;
+    setFormDirty(true);
+    setMessage('');
+  };
 
   const handleSave = async () => {
     if (!id) return;
     setSaving(true);
+    savingRef.current = true;
     setMessage('');
     setError('');
     try {
@@ -55,12 +94,15 @@ export function RaffleControlPage() {
         prizeCount: Number(prizeCount),
         participantsText,
       });
-      await loadRaffle();
+      formDirtyRef.current = false;
+      setFormDirty(false);
+      await loadRaffle({ resetForm: true });
       setMessage('Raffle settings saved.');
-    } catch {
-      setError('Could not save raffle settings.');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Could not save raffle settings.');
     } finally {
       setSaving(false);
+      savingRef.current = false;
     }
   };
 
@@ -127,6 +169,11 @@ export function RaffleControlPage() {
 
       {message && <p className="control-page__message">{message}</p>}
       {error && <p className="control-page__error">{error}</p>}
+      {formDirty && !saving && (
+        <p className="control-page__hint control-page__hint--dirty">
+          Unsaved changes — they stay on screen until you save.
+        </p>
+      )}
 
       <nav className="control-page__tabs" aria-label="Raffle editor sections">
         {(
@@ -157,7 +204,10 @@ export function RaffleControlPage() {
               <input
                 type="text"
                 value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                  markDirty();
+                }}
                 placeholder="e.g. Fall Career Fair Giveaway"
               />
               <small>Shown on the live display screen. Edit anytime, then save.</small>
@@ -166,7 +216,10 @@ export function RaffleControlPage() {
               <span>Status</span>
               <select
                 value={status}
-                onChange={(e) => setStatus(e.target.value as Raffle['status'])}
+                onChange={(e) => {
+                  setStatus(e.target.value as Raffle['status']);
+                  markDirty();
+                }}
               >
                 <option value="draft">Draft</option>
                 <option value="active">Active</option>
@@ -179,7 +232,10 @@ export function RaffleControlPage() {
                 type="number"
                 min={1}
                 value={prizeCount}
-                onChange={(e) => setPrizeCount(e.target.value)}
+                onChange={(e) => {
+                  setPrizeCount(e.target.value);
+                  markDirty();
+                }}
               />
             </label>
             <dl className="control-page__stats">
@@ -214,7 +270,10 @@ export function RaffleControlPage() {
             <textarea
               className="control-page__textarea"
               value={participantsText}
-              onChange={(e) => setParticipantsText(e.target.value)}
+              onChange={(e) => {
+                setParticipantsText(e.target.value);
+                markDirty();
+              }}
               rows={16}
               placeholder="Jordan Martinez&#10;Emily Parker&#10;..."
             />

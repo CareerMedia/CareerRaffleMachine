@@ -39,6 +39,7 @@ export function RaffleDisplay({ raffleId }: RaffleDisplayProps) {
     displayState,
     drawResult,
     loading,
+    isSyncing,
     dispatch,
     startSpin,
     completeCelebration,
@@ -228,6 +229,7 @@ export function RaffleDisplay({ raffleId }: RaffleDisplayProps) {
             currentDraw={stats.currentDraw}
             totalPrizes={stats.totalPrizes}
             dimmed={dimmed}
+            syncing={isSyncing}
           />
         </header>
 

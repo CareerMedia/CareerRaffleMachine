@@ -178,6 +178,15 @@
   background: white;
 }
 
+.control-page__hint--dirty {
+  margin-bottom: 1rem;
+  padding: 0.55rem 0.85rem;
+  background: #fff8e6;
+  color: #8a6a00;
+  border-radius: 0.5rem;
+  border: 1px solid #f0dfa0;
+}
+
 .control-page__textarea {
   width: 100%;
   padding: 0.75rem;

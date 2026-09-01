@@ -103,17 +103,22 @@ export async function writeGitHubAppStateWithRetry(
   config: GitHubStorageConfig,
   state: PersistedAppState,
   sha: string | null,
-  maxAttempts = 4,
+  mergeWithRemote: (remote: PersistedAppState) => PersistedAppState,
+  maxAttempts = 5,
 ): Promise<string> {
   let currentSha = sha;
+  let payload = state;
 
   for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
     try {
-      return await writeGitHubAppState(config, state, currentSha);
+      return await writeGitHubAppState(config, payload, currentSha);
     } catch (error) {
       if (error instanceof GitHubConflictError && attempt < maxAttempts - 1) {
         const remote = await readGitHubAppState(config);
-        currentSha = remote?.sha ?? null;
+        if (remote) {
+          payload = mergeWithRemote(remote.state);
+          currentSha = remote.sha;
+        }
         continue;
       }
       throw error;
