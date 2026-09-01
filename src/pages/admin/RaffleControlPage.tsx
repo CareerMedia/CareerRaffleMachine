@@ -310,14 +310,9 @@ export function RaffleControlPage() {
             <p className="control-page__display-url">
               URL: <code>{getAppUrl(displayPath)}</code>
             </p>
-            <a
-              href={getAppUrl(displayPath)}
-              className="control-page__launch"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <Link to={displayPath} className="control-page__launch">
               Launch Display Mode
-            </a>
+            </Link>
           </section>
         )}
       </div>
