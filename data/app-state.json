@@ -155,11 +155,27 @@
     "test-mtit9617-avkge": {
       "id": "test-mtit9617-avkge",
       "title": "Test",
-      "totalParticipants": 0,
+      "totalParticipants": 3,
       "prizeCount": 1,
       "currentDraw": 1,
       "status": "draft",
-      "participants": [],
+      "participants": [
+        {
+          "id": "participant-1788275982108-0",
+          "name": "Bryce Simon",
+          "eligible": true
+        },
+        {
+          "id": "participant-1788275982108-1",
+          "name": "Bryce Simon",
+          "eligible": true
+        },
+        {
+          "id": "participant-1788275982108-2",
+          "name": "Bryce Simon",
+          "eligible": true
+        }
+      ],
       "winners": []
     }
   },
