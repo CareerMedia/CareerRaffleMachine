@@ -151,9 +151,20 @@
           "wonAt": "2026-08-31T23:11:44.597Z"
         }
       ]
+    },
+    "test-mtit9617-avkge": {
+      "id": "test-mtit9617-avkge",
+      "title": "Test",
+      "totalParticipants": 0,
+      "prizeCount": 1,
+      "currentDraw": 1,
+      "status": "draft",
+      "participants": [],
+      "winners": []
     }
   },
   "order": [
+    "test-mtit9617-avkge",
     "demo-career-fair-giveaway"
   ],
   "branding": {
