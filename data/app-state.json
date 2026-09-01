@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "revision": 3,
-  "updatedAt": "2026-09-02T04:23:55.441Z",
+  "revision": 4,
+  "updatedAt": "2026-09-02T04:24:19.982Z",
   "raffles": {
     "demo-career-fair-giveaway": {
       "id": "demo-career-fair-giveaway",
       "title": "Career Fair Giveaway",
-      "totalParticipants": 2,
+      "totalParticipants": 1,
       "prizeCount": 10,
-      "currentDraw": 13,
+      "currentDraw": 14,
       "status": "active",
       "participants": [
         {
@@ -74,7 +74,7 @@
         {
           "id": "participant-1788323007122-1",
           "name": "Kate",
-          "eligible": true
+          "eligible": false
         },
         {
           "id": "participant-1788323007122-2",
@@ -166,6 +166,13 @@
           "participantName": "Bryce",
           "drawNumber": 12,
           "wonAt": "2026-09-02T04:23:55.441Z"
+        },
+        {
+          "id": "winner-13-1788323059982",
+          "participantId": "participant-1788323007122-1",
+          "participantName": "Kate",
+          "drawNumber": 13,
+          "wonAt": "2026-09-02T04:24:19.982Z"
         }
       ]
     },
