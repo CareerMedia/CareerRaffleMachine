@@ -1,12 +1,48 @@
 {
   "version": 1,
+  "revision": 0,
+  "updatedAt": "1970-01-01T00:00:00.000Z",
   "raffles": {
+    "test-mtit9617-avkge": {
+      "id": "test-mtit9617-avkge",
+      "title": "Test",
+      "totalParticipants": 2,
+      "prizeCount": 1,
+      "currentDraw": 2,
+      "status": "draft",
+      "participants": [
+        {
+          "id": "participant-1788275982108-0",
+          "name": "Bryce Simon",
+          "eligible": true
+        },
+        {
+          "id": "participant-1788275982108-1",
+          "name": "Bryce Simon",
+          "eligible": false
+        },
+        {
+          "id": "participant-1788275982108-2",
+          "name": "Bryce Simon",
+          "eligible": true
+        }
+      ],
+      "winners": [
+        {
+          "id": "winner-1-1788276076606",
+          "participantId": "participant-1788275982108-1",
+          "participantName": "Bryce Simon",
+          "drawNumber": 1,
+          "wonAt": "2026-09-01T15:21:16.606Z"
+        }
+      ]
+    },
     "demo-career-fair-giveaway": {
       "id": "demo-career-fair-giveaway",
       "title": "Career Fair Giveaway",
       "totalParticipants": 0,
       "prizeCount": 10,
-      "currentDraw": 13,
+      "currentDraw": 12,
       "status": "active",
       "participants": [
         {
@@ -66,13 +102,6 @@
         }
       ],
       "winners": [
-        {
-          "id": "winner-1-1788215330088",
-          "participantId": "participant-8",
-          "participantName": "Casey Nguyen",
-          "drawNumber": 1,
-          "wonAt": "2026-08-31T22:28:50.088Z"
-        },
         {
           "id": "winner-2-1788215330246",
           "participantId": "participant-8",
@@ -149,40 +178,6 @@
           "participantName": "Hell No",
           "drawNumber": 12,
           "wonAt": "2026-08-31T23:11:44.597Z"
-        }
-      ]
-    },
-    "test-mtit9617-avkge": {
-      "id": "test-mtit9617-avkge",
-      "title": "Test",
-      "totalParticipants": 2,
-      "prizeCount": 1,
-      "currentDraw": 2,
-      "status": "draft",
-      "participants": [
-        {
-          "id": "participant-1788275982108-0",
-          "name": "Bryce Simon",
-          "eligible": true
-        },
-        {
-          "id": "participant-1788275982108-1",
-          "name": "Bryce Simon",
-          "eligible": false
-        },
-        {
-          "id": "participant-1788275982108-2",
-          "name": "Bryce Simon",
-          "eligible": true
-        }
-      ],
-      "winners": [
-        {
-          "id": "winner-1-1788276076606",
-          "participantId": "participant-1788275982108-1",
-          "participantName": "Bryce Simon",
-          "drawNumber": 1,
-          "wonAt": "2026-09-01T15:21:16.606Z"
         }
       ]
     }
