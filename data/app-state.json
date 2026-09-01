@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "revision": 2,
-  "updatedAt": "2026-09-02T04:23:27.124Z",
+  "revision": 3,
+  "updatedAt": "2026-09-02T04:23:55.441Z",
   "raffles": {
     "demo-career-fair-giveaway": {
       "id": "demo-career-fair-giveaway",
       "title": "Career Fair Giveaway",
-      "totalParticipants": 3,
+      "totalParticipants": 2,
       "prizeCount": 10,
-      "currentDraw": 12,
+      "currentDraw": 13,
       "status": "active",
       "participants": [
         {
@@ -69,7 +69,7 @@
         {
           "id": "participant-1788323007122-0",
           "name": "Bryce",
-          "eligible": true
+          "eligible": false
         },
         {
           "id": "participant-1788323007122-1",
@@ -159,6 +159,13 @@
           "participantName": "Hell No",
           "drawNumber": 12,
           "wonAt": "2026-08-31T23:11:44.597Z"
+        },
+        {
+          "id": "winner-12-1788323035441",
+          "participantId": "participant-1788323007122-0",
+          "participantName": "Bryce",
+          "drawNumber": 12,
+          "wonAt": "2026-09-02T04:23:55.441Z"
         }
       ]
     },
