@@ -155,9 +155,9 @@
     "test-mtit9617-avkge": {
       "id": "test-mtit9617-avkge",
       "title": "Test",
-      "totalParticipants": 3,
+      "totalParticipants": 2,
       "prizeCount": 1,
-      "currentDraw": 1,
+      "currentDraw": 2,
       "status": "draft",
       "participants": [
         {
@@ -168,7 +168,7 @@
         {
           "id": "participant-1788275982108-1",
           "name": "Bryce Simon",
-          "eligible": true
+          "eligible": false
         },
         {
           "id": "participant-1788275982108-2",
@@ -176,7 +176,15 @@
           "eligible": true
         }
       ],
-      "winners": []
+      "winners": [
+        {
+          "id": "winner-1-1788276076606",
+          "participantId": "participant-1788275982108-1",
+          "participantName": "Bryce Simon",
+          "drawNumber": 1,
+          "wonAt": "2026-09-01T15:21:16.606Z"
+        }
+      ]
     }
   },
   "order": [
