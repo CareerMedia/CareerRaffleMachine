@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": 6,
-  "updatedAt": "2026-05-06T03:21:06.088Z",
+  "revision": 7,
+  "updatedAt": "2026-05-06T07:29:16.769Z",
   "raffles": {
     "demo-career-fair-giveaway": {
       "id": "demo-career-fair-giveaway",
@@ -186,9 +186,9 @@
     "test-mtit9617-avkge": {
       "id": "test-mtit9617-avkge",
       "title": "Test",
-      "totalParticipants": 3,
+      "totalParticipants": 2,
       "prizeCount": 1,
-      "currentDraw": 3,
+      "currentDraw": 4,
       "status": "draft",
       "participants": [
         {
@@ -204,7 +204,7 @@
         {
           "id": "participant-1778037666087-0",
           "name": "Aidyn Kinchen",
-          "eligible": true
+          "eligible": false
         },
         {
           "id": "participant-1778037666087-1",
@@ -231,6 +231,13 @@
           "participantName": "Bryce Simon",
           "drawNumber": 2,
           "wonAt": "2026-09-01T15:33:08.189Z"
+        },
+        {
+          "id": "winner-3-1778052556769",
+          "participantId": "participant-1778037666087-0",
+          "participantName": "Aidyn Kinchen",
+          "drawNumber": 3,
+          "wonAt": "2026-05-06T07:29:16.769Z"
         }
       ]
     }
